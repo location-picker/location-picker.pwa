@@ -1,3 +1,5 @@
+[![Deploy Status](https://github.com/tripadvancer/location-picker/actions/workflows/deploy.yml/badge.svg)](https://github.com/tripadvancer/location-picker/actions/workflows/deploy.yml)
+
 # Location Picker
 
 A simple location picker built with Next.js and MapLibre.
