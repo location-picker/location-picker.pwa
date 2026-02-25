@@ -19,7 +19,12 @@ export async function initDB() {
 
 export async function addPlace(place: Omit<Place, 'id'>) {
     const db = await initDB()
-    await db.add('places', place)
+    await db.add('places', { ...place, pinned: place.pinned ?? false })
+}
+
+export async function updatePlace(place: Place) {
+    const db = await initDB()
+    await db.put('places', place)
 }
 
 export async function getPlaces(): Promise<Place[]> {

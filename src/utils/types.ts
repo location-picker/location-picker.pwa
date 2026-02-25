@@ -11,6 +11,7 @@ export type SearchItem = {
 
 export interface Place {
     id: number
-    coordinates: Coordinates
     name: string
+    coordinates: Coordinates
+    pinned?: boolean
 }
