@@ -36,7 +36,7 @@ export const SavedLocations = () => {
     const handleClear = () => setSearch('')
 
     return (
-        <section className="space-y-6">
+        <section className="w-full space-y-6">
             <div className="space-y-2">
                 <h1 className="text-lg font-bold">My Saved Locations</h1>
                 <p className="text-sm text-gray-500">
