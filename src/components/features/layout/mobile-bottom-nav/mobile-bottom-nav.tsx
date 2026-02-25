@@ -17,7 +17,7 @@ export const MobileBottomNav = () => {
     const pathname = usePathname()
 
     return (
-        <nav className="fixed right-0 bottom-0 left-0 z-50 flex border-t border-gray-300 bg-white">
+        <nav className="fixed right-0 bottom-0 left-0 z-40 flex border-t border-gray-300 bg-white">
             {NAV_ITEMS.map(item => {
                 const isActive = pathname === item.href
                 const Icon = item.icon
