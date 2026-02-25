@@ -28,7 +28,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en" className={classNames('bg-[#e8f4ff]', roboto.className)}>
+        <html lang="en" className={classNames('h-full bg-white md:bg-[#e8f4ff]', roboto.className)}>
             <head>
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -37,7 +37,7 @@ export default function RootLayout({
                 <link rel="apple-touch-icon" href="/icons/icon-192.png" />
             </head>
             <body className="h-full antialiased">
-                <div className="relative m-auto flex min-h-screen max-w-250 flex-col bg-white px-4 md:px-8">
+                <div className="relative m-auto flex min-h-full max-w-250 flex-col bg-white px-4 md:px-8">
                     <ToastProvider>
                         <Header />
                         <main className="flex w-full grow py-4 md:block md:py-8">{children}</main>
