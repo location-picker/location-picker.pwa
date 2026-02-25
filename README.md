@@ -6,7 +6,7 @@ A simple location picker built with Next.js and MapLibre.
 
 [https://location-picker.tripadvancer.com](https://location-picker.tripadvancer.com)
 
-![](https://raw.githubusercontent.com/oskolsky/location-picker/refs/heads/main/public/images/about/demo.png)
+![](https://raw.githubusercontent.com/tripadvancer/location-picker/refs/heads/master/public/images/about/demo.png)
 
 ## Features
 
