@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+import classNames from 'classnames'
+
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 
@@ -29,7 +31,6 @@ export const LocationPickerControls = () => {
         setIsMobile(window.innerWidth < 768)
     }, [])
 
-    // блокировка скролла body
     useEffect(() => {
         if (isSheetOpen) {
             document.body.style.overflow = 'hidden'
@@ -86,11 +87,12 @@ export const LocationPickerControls = () => {
                             <div
                                 key={nav.id}
                                 onClick={() => handleNavigatorClick(nav.id)}
-                                className={`flex h-20 flex-1 cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border transition md:size-20 md:flex-none ${
-                                    !isMobile && isActive
+                                className={classNames(
+                                    'flex h-20 flex-1 cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border transition md:size-20 md:flex-none',
+                                    !isMobile && navigator === nav.id
                                         ? 'border-orange-300 bg-orange-100'
-                                        : 'border-transparent bg-orange-50'
-                                }`}
+                                        : 'border-transparent bg-orange-50',
+                                )}
                             >
                                 <Image src={nav.icon} width={32} height={32} alt={nav.name} />
                                 <div className="text-xs font-bold">{nav.name}</div>
@@ -113,9 +115,10 @@ export const LocationPickerControls = () => {
                         {/* Backdrop */}
                         <div
                             onClick={() => setIsSheetOpen(false)}
-                            className={`fixed inset-0 z-50 bg-black/40 transition-opacity duration-300 ${
-                                isSheetOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
-                            }`}
+                            className={classNames(
+                                'fixed inset-0 z-40 bg-black/40 transition-opacity duration-300',
+                                isSheetOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
+                            )}
                         />
 
                         {/* Sheet */}
@@ -132,10 +135,34 @@ export const LocationPickerControls = () => {
                             {/* Drag handle */}
                             <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-gray-300" />
 
-                            <div className="flex flex-col gap-3">
-                                <LocationPickerShareOpenButton navLink={navLink} />
-                                <LocationPickerShareCopyButton navLink={navLink} />
-                                <LocationPickerShareShareButton navLink={navLink} />
+                            <div className="flex flex-col">
+                                {/* Navigator info */}
+                                {(() => {
+                                    const activeNav = NAVIGATORS.find(n => n.id === navigator)!
+                                    return (
+                                        <div className="mb-4 flex items-center gap-3 border-b border-gray-200 pb-4">
+                                            <div className="flex size-12 items-center justify-center rounded-lg bg-orange-100">
+                                                <Image
+                                                    src={activeNav.icon}
+                                                    width={24}
+                                                    height={24}
+                                                    alt={activeNav.name}
+                                                />
+                                            </div>
+                                            <div className="text-sm">
+                                                <div className="font-semibold">{activeNav.name}</div>
+                                                <div className="text-gray-500">Choose an action</div>
+                                            </div>
+                                        </div>
+                                    )
+                                })()}
+
+                                {/* Actions */}
+                                <div className="flex flex-col gap-3">
+                                    <LocationPickerShareOpenButton navLink={navLink} />
+                                    <LocationPickerShareCopyButton navLink={navLink} />
+                                    <LocationPickerShareShareButton navLink={navLink} />
+                                </div>
                             </div>
                         </div>
                     </div>
