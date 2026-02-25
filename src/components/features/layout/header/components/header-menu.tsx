@@ -13,7 +13,7 @@ export const HeaderMenu = ({ closeMobileMenu }: HeaderMenuProps) => {
     useScrollLock()
 
     return (
-        <nav className="absolute top-0 right-0 bottom-0 left-0 z-40 mt-[61px] flex flex-col gap-y-4 bg-white p-4 sm:mt-[73px] sm:px-8">
+        <nav className="absolute top-0 right-0 bottom-0 left-0 z-40 mt-15.25 flex flex-col gap-y-4 bg-white p-4 md:mt-18.25 md:px-8">
             <Link
                 href="/"
                 className="flex items-center justify-between text-gray-700 hover:text-gray-950"

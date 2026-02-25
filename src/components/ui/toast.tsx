@@ -45,5 +45,5 @@ export const Toast = ({ variant, title, message, onClose }: ToastProps) => {
 }
 
 export const ToastContainer = ({ children }: { children: ReactNode }) => {
-    return <div className="fixed top-4 right-4 left-4 z-50 flex flex-col gap-4 sm:left-auto sm:w-96">{children}</div>
+    return <div className="fixed top-4 right-4 left-4 z-50 flex flex-col gap-4 md:left-auto md:w-96">{children}</div>
 }

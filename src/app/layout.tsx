@@ -37,10 +37,10 @@ export default function RootLayout({
                 <link rel="apple-touch-icon" href="/icons/icon-192.png" />
             </head>
             <body className="h-full antialiased">
-                <div className="relative m-auto flex min-h-screen max-w-250 flex-col bg-white px-4 sm:px-8">
+                <div className="relative m-auto flex min-h-screen max-w-250 flex-col bg-white px-4 md:px-8">
                     <ToastProvider>
                         <Header />
-                        <main className="grow py-4 sm:py-8">{children}</main>
+                        <main className="flex w-full grow py-4 md:block md:py-8">{children}</main>
                         <Footer />
                     </ToastProvider>
                     <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />

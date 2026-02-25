@@ -97,8 +97,10 @@ export const Search = () => {
                             <MapPinIcon size={16} className="mt-0.5 w-4 shrink-0 text-gray-400" />
 
                             <div>
-                                <div className="line-clamp-1 text-sm break-words">{item.title}</div>
-                                <div className="line-clamp-2 text-xs break-words text-gray-400">{item.description}</div>
+                                <div className="line-clamp-1 text-sm wrap-break-word">{item.title}</div>
+                                <div className="line-clamp-2 text-xs wrap-break-word text-gray-400">
+                                    {item.description}
+                                </div>
                             </div>
                         </div>
                     ))}

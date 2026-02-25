@@ -37,7 +37,7 @@ export const AboutExpander = ({ title, children }: AboutExpanderProps) => {
                     {isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
                 </div>
             </div>
-            {isOpen && <div className="py-4 sm:px-2">{children}</div>}
+            {isOpen && <div className="py-4 md:px-2">{children}</div>}
         </div>
     )
 }

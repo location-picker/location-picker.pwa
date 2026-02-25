@@ -33,5 +33,9 @@ export const LocationPickerShareSaveButton = ({ coordinates }: LocationPickerSha
         }
     }
 
-    return <Button onClick={handleSave}>Save</Button>
+    return (
+        <Button className="w-full md:w-auto" onClick={handleSave}>
+            Save location
+        </Button>
+    )
 }

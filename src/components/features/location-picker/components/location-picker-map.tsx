@@ -99,7 +99,7 @@ export const LocationPickerMap = () => {
     if (!initialViewState) return null
 
     return (
-        <div className="over aspect-square overflow-hidden rounded-lg sm:aspect-video">
+        <div className="over h-full overflow-hidden rounded-lg md:aspect-video md:h-auto">
             <ReactMapGl
                 ref={mapRef}
                 id="locations-map"
@@ -117,14 +117,14 @@ export const LocationPickerMap = () => {
                     width={27}
                     height={41}
                     alt=""
-                    className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-[13.5px] -translate-y-[36px]"
+                    className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-[13.5px] -translate-y-9"
                 />
                 <Image
                     src="/images/pin.svg"
                     width={27}
                     height={41}
                     alt=""
-                    className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-[13.5px] -translate-y-[36px]"
+                    className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-[13.5px] -translate-y-9"
                     style={{ marginTop: isMapMoving ? -8 : 0 }}
                 />
             </ReactMapGl>

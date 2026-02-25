@@ -26,7 +26,7 @@ export const Header = () => {
                 <Logo />
 
                 <div className="flex flex-1 items-center gap-x-4">
-                    <div className="hidden flex-1 sm:block">
+                    <div className="hidden flex-1 md:block">
                         <Suspense>
                             <Search />
                         </Suspense>
@@ -37,6 +37,7 @@ export const Header = () => {
                     </div>
                 </div>
             </header>
+
             {isOpen && <HeaderMenu closeMobileMenu={closeMobileMenu} />}
         </>
     )

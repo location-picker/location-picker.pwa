@@ -8,7 +8,7 @@ import { Search } from '@/components/features/search/search'
 
 import { ConverterResult } from '../common/converter-result/converter-result'
 import { LocationPickerMap } from './components/location-picker-map'
-import { LocationPickerShare } from './components/location-picker-share/location-picker-share'
+import { LocationPickerControls } from './components/location-picker-share/location-picker-controls'
 
 export const LocationPicker = () => {
     const searchParams = useSearchParams()
@@ -31,15 +31,19 @@ export const LocationPicker = () => {
     }, [lat, lng, zoom, searchParams, router])
 
     return (
-        <section className="space-y-4 sm:space-y-8">
-            <div className="block sm:hidden">
+        <section className="flex w-full flex-col gap-y-4 md:gap-y-8">
+            <div className="block flex-0 md:hidden">
                 <Search />
             </div>
-            <LocationPickerMap />
-            <div className="hidden sm:block">
+            <div className="flex-1">
+                <LocationPickerMap />
+            </div>
+            <div className="hidden flex-0 md:block">
                 <ConverterResult lat={lat} lng={lng} />
             </div>
-            <LocationPickerShare />
+            <div className="flex-0">
+                <LocationPickerControls />
+            </div>
         </section>
     )
 }

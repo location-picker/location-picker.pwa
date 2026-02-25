@@ -69,9 +69,9 @@ export const About = () => {
                 </p>
             </AboutExpander>
 
-            <AboutExpander title="Use in Full Screen Mode on iPhone and Android">
+            <AboutExpander title="Use in Full Screen Mode on phone">
                 <div className="flex items-center space-x-4">
-                    <div className="hidden w-1/3 shrink-0 sm:block">
+                    <div className="hidden w-1/3 shrink-0 md:block">
                         <Image
                             src="/images/about/full-screen.jpg"
                             alt="Full Screen Mode"

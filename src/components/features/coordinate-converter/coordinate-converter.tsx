@@ -52,7 +52,7 @@ export const CoordinateConverter = () => {
                 </p>
             </div>
 
-            <div className="flex flex-col items-start gap-4 sm:w-2/3 sm:flex-row">
+            <div className="flex flex-col items-start gap-4 md:w-2/3 md:flex-row">
                 <Input
                     placeholder="Enter coordinates DD or DMS"
                     value={value}
@@ -60,7 +60,7 @@ export const CoordinateConverter = () => {
                     className="w-full"
                     onChange={e => setValue(e.target.value)}
                 />
-                <Button onClick={handleConvert} className="w-full sm:w-auto">
+                <Button onClick={handleConvert} className="w-full md:w-auto">
                     Convert
                 </Button>
             </div>

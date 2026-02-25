@@ -28,7 +28,7 @@ export const LocationPickerShareShareButton = ({ navLink }: LocationPickerShareS
     }
 
     return (
-        <Button onClick={handleShare} className="block sm:hidden">
+        <Button onClick={handleShare} className="block md:hidden">
             Share
         </Button>
     )
