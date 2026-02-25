@@ -1,8 +1,10 @@
 import { SearchType } from './enums'
 
 export const detectSearchType = (value: string): SearchType => {
-    if (isValidDDCoordinates(value)) return SearchType.DD
-    if (isValidDMSCoordinates(value)) return SearchType.DMS
+    const cleaned = normalizeCoordinatesInput(value)
+
+    if (isValidDDCoordinates(cleaned)) return SearchType.DD
+    if (isValidDMSCoordinates(cleaned)) return SearchType.DMS
     return SearchType.TEXT
 }
 
@@ -39,11 +41,20 @@ export const convertDMStoDD = (dms: string): { lat: number; lng: number } | null
 }
 
 export const parseDDCoordinates = (value: string): { lat: number; lng: number } | null => {
-    if (!isValidDDCoordinates(value)) return null
+    const cleaned = normalizeCoordinatesInput(value)
 
-    const [latRaw, lngRaw] = value.trim().split(/[\s,]+/)
+    if (!isValidDDCoordinates(cleaned)) return null
+
+    const [latRaw, lngRaw] = cleaned.split(/[\s,]+/)
     const lat = parseFloat(latRaw)
     const lng = parseFloat(lngRaw)
 
     return { lat, lng }
+}
+
+export const normalizeCoordinatesInput = (value: string): string => {
+    return value
+        .trim()
+        .replace(/^\(+|\)+$/g, '')
+        .replace(/\s+/g, ' ')
 }
