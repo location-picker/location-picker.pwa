@@ -1,19 +1,22 @@
 import { Metadata } from 'next'
 
-import { LocationPicker } from '@/components/features/location-picker/location-picker'
+import { Landing } from '@/components/features/landing/landing'
 
 // prettier-ignore
 export const metadata: Metadata = {
-    title: 'Location Picker - Store and Share Locations Easily',
-    description: 'Location Picker is a free online tool to store, convert, and share locations by address or coordinates. Works with DD and DMS formats, and integrates with Google Maps, Waze, Apple Maps, and Yandex.Maps.',
+    title: 'Location Picker - Quickly Save and Open Locations',
+    description: 'Location Picker is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
     keywords: [
         'location picker',
-        'store locations',
+        'store locations quickly',
         'share locations',
-        'coordinates converter',
-        'DD to DMS',
         'GPS tool',
         'maps integration',
+        'Google Maps',
+        'Waze',
+        'Apple Maps',
+        'Yandex.Maps',
+        'coordinates manager',
     ],
     alternates: {
         canonical: '/',
@@ -26,8 +29,8 @@ export const metadata: Metadata = {
         title: 'Location Picker',
     },
     openGraph: {
-        title: 'Location Picker - Store and Share Locations Easily',
-        description: 'Location Picker is a free online tool to store, convert, and share locations by address or coordinates. Works with DD and DMS formats, and integrates with Google Maps, Waze, Apple Maps, and Yandex.Maps.',
+        title: 'Location Picker - Quickly Save and Open Locations',
+        description: 'Location Picker is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
         type: 'website',
         locale: 'en_US',
         url: '/',
@@ -43,12 +46,12 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Location Picker - Store and Share Locations Easily',
-        description: 'Free online tool to store, convert, and share locations. Supports DD/DMS and Google Maps, Waze, Apple Maps, Yandex.Maps.',
+        title: 'Location Picker - Quickly Save and Open Locations',
+        description: 'Free online tool to quickly save, manage, and share locations. Works with Google Maps, Waze, Apple Maps, and Yandex.Maps.',
         images: ['/og-image-home.png'],
     },
 }
 
 export default function HomePage() {
-    return <LocationPicker />
+    return <Landing />
 }

@@ -7,17 +7,17 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const NAV_ITEMS = [
-    { href: '/', label: 'Home', icon: HouseIcon },
-    { href: '/saved', label: 'Saved', icon: HeartIcon },
-    { href: '/coordinate-converter', label: 'Converter', icon: CompassIcon },
-    { href: '/about', label: 'About', icon: InfoIcon },
+    { href: '/app', label: 'Home', icon: HouseIcon },
+    { href: '/app/saved', label: 'Saved', icon: HeartIcon },
+    { href: '/app/coordinate-converter', label: 'Converter', icon: CompassIcon },
+    { href: '/app/about', label: 'About', icon: InfoIcon },
 ]
 
 export const MobileBottomNav = () => {
     const pathname = usePathname()
 
     return (
-        <nav className="fixed right-0 bottom-0 left-0 z-40 flex border-t border-gray-300 bg-white">
+        <nav className="fixed right-0 bottom-0 left-0 z-40 flex border-t border-gray-300 bg-white md:hidden">
             {NAV_ITEMS.map(item => {
                 const isActive = pathname === item.href
                 const Icon = item.icon

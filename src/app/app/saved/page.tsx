@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         'map bookmarks',
     ],
     alternates: {
-        canonical: '/saved',
+        canonical: '/app/saved',
     },
     robots: {
         index: false,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         title: 'My Saved Locations - Location Picker',
         description: 'View and manage all your saved locations with Location Picker.',
         type: 'website',
-        url: '/saved',
+        url: '/app/saved',
         siteName: 'Location Picker',
         images: [
             {

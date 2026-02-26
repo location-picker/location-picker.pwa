@@ -14,7 +14,7 @@ type InstallPWAButtonProps = {
     height: number
 }
 
-export default function InstallPWAButton({ width, height }: InstallPWAButtonProps) {
+export function InstallPWAButton({ width, height }: InstallPWAButtonProps) {
     const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
     const [isIos, setIsIos] = useState(false)
     const [showButton, setShowButton] = useState(false)

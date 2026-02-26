@@ -1,9 +1,9 @@
-import InstallPWAButton from '@/components/features/layout/install-pwa-button/install-pwa-button'
+import { InstallPWAButton } from '@/components/features/common/install-pwa-button/install-pwa-button'
 import { ExternalLink } from '@/components/ui/external-link'
 
 export const Footer = () => {
     return (
-        <footer className="flex items-center justify-between gap-y-4 border-t border-gray-300 py-4">
+        <footer className="hidden items-center justify-between gap-y-4 border-t border-gray-300 py-4 md:flex">
             <div className="text-sm">
                 &copy; 2025 - 2026{' '}
                 <ExternalLink

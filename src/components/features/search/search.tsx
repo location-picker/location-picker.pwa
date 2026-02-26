@@ -58,7 +58,7 @@ export const Search = () => {
             currentParams.set('lng', lng.toString())
             currentParams.set('zoom', zoom.toString())
 
-            router.replace(`/?${currentParams.toString()}`)
+            router.replace(`/app/?${currentParams.toString()}`)
 
             setIsAutocompleteVisible(false)
         }

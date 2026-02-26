@@ -6,7 +6,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 
 import { Search } from '@/components/features/search/search'
 
-import { ConverterResult } from '../common/converter-result/converter-result'
 import { LocationPickerControls } from './components/location-picker-controls/location-picker-controls'
 import { LocationPickerMap } from './components/location-picker-map'
 
@@ -37,9 +36,6 @@ export const LocationPicker = () => {
             </div>
             <div className="flex-1">
                 <LocationPickerMap />
-            </div>
-            <div className="hidden flex-0 md:block">
-                <ConverterResult lat={lat} lng={lng} />
             </div>
             <div className="flex-0">
                 <LocationPickerControls />
