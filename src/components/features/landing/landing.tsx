@@ -17,9 +17,7 @@ export const Landing = () => {
             </div>
 
             <section className="space-y-6 text-center md:w-1/2 md:text-left">
-                <h1 className="bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-extrabold text-transparent md:text-5xl">
-                    Location Picker
-                </h1>
+                <h1 className="text-4xl font-extrabold text-nowrap text-gray-950 md:text-5xl">Location Picker</h1>
                 <p className="text-lg text-gray-700 md:text-xl">
                     Search, store, and share locations instantly. Save your spots in a flash and open them anytime in{' '}
                     <strong>Google Maps</strong>, <strong>Waze</strong>, <strong>Apple Maps</strong>, or{' '}
@@ -29,7 +27,7 @@ export const Landing = () => {
                 <div className="flex flex-col items-center gap-4 md:flex-row">
                     <InstallPWAButton width={162} height={48} />
                     <Button
-                        className="rounded-lg bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-3 font-semibold text-white shadow-md transition-all hover:from-blue-600 hover:via-purple-600 hover:to-pink-600"
+                        className="bg-gray-900 font-semibold text-white hover:bg-gray-950"
                         onClick={() => router.push('/app')}
                     >
                         Launch in Browser
