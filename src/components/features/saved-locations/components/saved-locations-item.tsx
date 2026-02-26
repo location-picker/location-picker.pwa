@@ -100,7 +100,7 @@ export const SavedLocationsItem = ({ place, onLoadPlaces }: SavedLocationsItemPr
                     </div>
 
                     <div
-                        className="cursor-pointer text-gray-400 hover:text-black md:hidden"
+                        className="cursor-pointer text-gray-400 hover:text-black"
                         onClick={isMobile ? handleEditMobile : handleEditDesktop}
                     >
                         <PencilIcon size={18} />
