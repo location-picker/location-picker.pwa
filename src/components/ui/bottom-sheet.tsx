@@ -19,12 +19,16 @@ export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => 
     }, [isOpen])
 
     // swipe to close
-    const handleTouchStart = (e: React.TouchEvent) => (startY.current = e.touches[0].clientY)
+    const handleTouchStart = (e: React.TouchEvent) => {
+        startY.current = e.touches[0].clientY
+    }
+
     const handleTouchMove = (e: React.TouchEvent) => {
         if (startY.current === null) return
         const diff = e.touches[0].clientY - startY.current
         if (diff > 0) setTranslateY(diff)
     }
+
     const handleTouchEnd = () => {
         if (translateY > 120) onClose()
         setTranslateY(0)

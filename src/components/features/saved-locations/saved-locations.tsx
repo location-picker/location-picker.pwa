@@ -56,7 +56,7 @@ export const SavedLocations = () => {
                 />
             )}
 
-            <ul className="space-y-2">
+            <ul className="flex flex-col gap-y-2">
                 {pinnedPlaces.length > 0 && (
                     <>
                         {pinnedPlaces.map(place => (
