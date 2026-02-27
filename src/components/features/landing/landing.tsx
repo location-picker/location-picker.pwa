@@ -11,7 +11,7 @@ export const Landing = () => {
     const router = useRouter()
 
     return (
-        <div className="flex min-h-screen items-center justify-between gap-x-15 bg-white px-16">
+        <div className="flex h-full flex-1 items-center justify-between gap-x-15 bg-white px-16">
             <div className="hidden w-1/2 justify-end md:flex">
                 <Image src="/images/about/full-screen.jpg" alt="Location Picker" width={400} height={667} />
             </div>
@@ -24,15 +24,12 @@ export const Landing = () => {
                     <strong>Yandex.Maps</strong>.
                 </p>
 
-                <div className="flex flex-col items-center gap-4 md:flex-row">
-                    <InstallPWAButton width={162} height={48} />
-                    <Button
-                        className="bg-gray-900 font-semibold text-white hover:bg-gray-950"
-                        onClick={() => router.push('/')}
-                    >
-                        Launch in Browser
-                    </Button>
-                </div>
+                <Button
+                    className="bg-gray-900 font-semibold text-white hover:bg-gray-950"
+                    onClick={() => router.push('/')}
+                >
+                    Let's Start
+                </Button>
             </section>
         </div>
     )

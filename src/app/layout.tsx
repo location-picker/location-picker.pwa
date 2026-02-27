@@ -42,7 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                         <div className="h-full">
                             <div className="relative m-auto flex min-h-full max-w-250 flex-col bg-white px-4 md:px-8">
                                 <Header />
-                                <main className="flex w-full grow py-4 pb-22 md:block md:py-8">{children}</main>
+                                <main className="flex w-full grow py-4 pb-22 md:py-8">{children}</main>
                                 <Footer />
                                 <MobileBottomNav />
                             </div>
