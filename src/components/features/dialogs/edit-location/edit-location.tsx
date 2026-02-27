@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/input'
 import { deletePlace, updatePlace } from '@/utils/db'
 import { Place } from '@/utils/types'
 
+import { Confirmation } from '../confirmation/confirmation'
+
 type EditLocationProps = {
     place: Place
     onSuccess: () => void
@@ -33,7 +35,6 @@ export const EditLocation = ({ place, onSuccess }: EditLocationProps) => {
         try {
             setLoading(true)
             await updatePlace({ ...place, name: trimmed })
-            toast.success('Location updated', 'Changes saved successfully.')
             onSuccess()
             overlay.close()
         } catch (err) {
@@ -44,23 +45,26 @@ export const EditLocation = ({ place, onSuccess }: EditLocationProps) => {
         }
     }
 
-    const handleDelete = async () => {
-        const confirmed = confirm('Are you sure you want to delete this location?')
-
-        if (!confirmed) return
-
-        try {
-            setLoading(true)
-            await deletePlace(place.id!)
-            toast.success('Location deleted', 'The location has been successfully deleted.')
-            onSuccess()
-            overlay.close()
-        } catch (err) {
-            console.error(err)
-            toast.error('Error', 'Failed to delete location')
-        } finally {
-            setLoading(false)
-        }
+    const handleDelete = () => {
+        overlay.open(
+            <Confirmation
+                title="Delete location"
+                message="Are you sure you want to delete this location?"
+                onConfirm={async () => {
+                    try {
+                        setLoading(true)
+                        await deletePlace(place.id!)
+                        onSuccess()
+                        overlay.close()
+                    } catch (err) {
+                        console.error(err)
+                        toast.error('Error', 'Failed to delete location')
+                    } finally {
+                        setLoading(false)
+                    }
+                }}
+            />,
+        )
     }
 
     return (

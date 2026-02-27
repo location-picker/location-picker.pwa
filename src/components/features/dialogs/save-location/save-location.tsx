@@ -59,7 +59,6 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
                 pinnedAt: undefined,
             }
             await addPlace(place)
-            toast.success('Success', 'Location saved successfully')
             overlay.close()
         } catch (err) {
             console.error(err)
