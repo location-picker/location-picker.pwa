@@ -100,7 +100,6 @@ export const LocationPickerMap = () => {
                 ref={mapRef}
                 id="locations-map"
                 mapStyle="https://tiles.stadiamaps.com/styles/outdoors.json"
-                attributionControl={false}
                 initialViewState={initialViewState}
                 onMoveStart={handleMoveStart}
                 onMoveEnd={handleMoveEnd}
