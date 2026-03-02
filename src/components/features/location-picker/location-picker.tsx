@@ -4,9 +4,9 @@ import { useEffect } from 'react'
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
+import { LocationControls } from '@/components/features/common/location-controls/location-controls'
 import { Search } from '@/components/features/search/search'
 
-import { LocationPickerControls } from './components/location-picker-controls/location-picker-controls'
 import { LocationPickerMap } from './components/location-picker-map'
 
 export const LocationPicker = () => {
@@ -38,7 +38,7 @@ export const LocationPicker = () => {
                 <LocationPickerMap />
             </div>
             <div className="flex-0">
-                <LocationPickerControls />
+                <LocationControls coordinates={{ lat: Number(lat), lng: Number(lng) }} />
             </div>
         </section>
     )

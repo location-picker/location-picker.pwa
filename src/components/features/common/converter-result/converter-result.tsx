@@ -1,22 +1,23 @@
-import { ConverterResultAddress } from './converter-result-address'
-import { ConverterResultDd } from './converter-result-dd'
-import { ConverterResultDms } from './converter-result-dms'
+import { LocationControls } from '@/components/features/common/location-controls/location-controls'
+import { Coordinates } from '@/utils/types'
+
+import { ConverterResultAddress } from './components/converter-result-address'
+import { ConverterResultDd } from './components/converter-result-dd'
+import { ConverterResultDms } from './components/converter-result-dms'
 
 type ConverterResultProps = {
-    lat?: string | null
-    lng?: string | null
+    coordinates: Coordinates
 }
 
-export const ConverterResult = (props: ConverterResultProps) => {
-    if (!props.lat || !props.lng) {
-        return null
-    }
-
+export const ConverterResult = ({ coordinates }: ConverterResultProps) => {
     return (
-        <div className="space-y-1 rounded-lg border border-gray-100 bg-gray-50 p-4 text-sm">
-            <ConverterResultDd lat={props.lat} lng={props.lng} />
-            <ConverterResultDms lat={props.lat} lng={props.lng} />
-            <ConverterResultAddress lat={props.lat} lng={props.lng} />
+        <div className="space-y-4">
+            <div className="space-y-1 rounded-lg border border-gray-100 bg-gray-50 p-4 text-sm">
+                <ConverterResultDd coordinates={coordinates} />
+                <ConverterResultDms coordinates={coordinates} />
+                <ConverterResultAddress coordinates={coordinates} />
+            </div>
+            <LocationControls coordinates={coordinates} />
         </div>
     )
 }

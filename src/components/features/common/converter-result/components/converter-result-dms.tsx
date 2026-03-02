@@ -1,5 +1,7 @@
 'use client'
 
+import { Coordinates } from '@/utils/types'
+
 function toDMS(deg: number, isLat: boolean) {
     const absolute = Math.abs(deg)
     const degrees = Math.floor(absolute)
@@ -13,23 +15,15 @@ function toDMS(deg: number, isLat: boolean) {
 }
 
 type ConverterResultDmsProps = {
-    lat: string
-    lng: string
+    coordinates: Coordinates
 }
 
-export const ConverterResultDms = (props: ConverterResultDmsProps) => {
-    const latNum = parseFloat(props.lat)
-    const lngNum = parseFloat(props.lng)
-
-    if (isNaN(latNum) || isNaN(lngNum)) {
-        return null
-    }
-
+export const ConverterResultDms = ({ coordinates }: ConverterResultDmsProps) => {
     return (
         <div>
             <strong>DMS: </strong>
             <span>
-                {toDMS(latNum, true)} {toDMS(lngNum, false)}{' '}
+                {toDMS(coordinates.lat, true)} {toDMS(coordinates.lng, false)}
             </span>
         </div>
     )

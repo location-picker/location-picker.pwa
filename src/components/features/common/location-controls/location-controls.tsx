@@ -1,25 +1,24 @@
 'use client'
 
 import Image from 'next/image'
-import { useSearchParams } from 'next/navigation'
 
 import { LocationActions } from '@/components/features/dialogs/location-actions/location-actions'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { NAVIGATORS } from '@/utils/constants'
 import { Navigator } from '@/utils/enums'
+import { Coordinates } from '@/utils/types'
 
-import { LocationPickerSaveButton } from './components/location-picker-save-button'
+import { LocationSaveButton } from './components/location-save-button'
 
-export const LocationPickerControls = () => {
+type LocationControlsProps = {
+    coordinates: Coordinates
+}
+
+export const LocationControls = ({ coordinates }: LocationControlsProps) => {
     const overlay = useOverlay()
-    const searchParams = useSearchParams()
-    const lat = searchParams.get('lat')
-    const lng = searchParams.get('lng')
-
-    if (!lat || !lng) return null
 
     const handleNavigatorClick = (navigator: Navigator) => {
-        overlay.open(<LocationActions navigator={navigator} coordinates={{ lat: Number(lat), lng: Number(lng) }} />)
+        overlay.open(<LocationActions navigator={navigator} coordinates={coordinates} />)
     }
 
     return (
@@ -36,7 +35,7 @@ export const LocationPickerControls = () => {
                     </div>
                 ))}
             </div>
-            <LocationPickerSaveButton coordinates={{ lat: Number(lat), lng: Number(lng) }} />
+            <LocationSaveButton coordinates={coordinates} />
         </div>
     )
 }

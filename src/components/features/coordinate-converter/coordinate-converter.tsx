@@ -65,7 +65,7 @@ export const CoordinateConverter = () => {
                 </Button>
             </div>
 
-            <ConverterResult lat={lat} lng={lng} />
+            {lat && lng && <ConverterResult coordinates={{ lat: Number(lat), lng: Number(lng) }} />}
         </section>
     )
 }

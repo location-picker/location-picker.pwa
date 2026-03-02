@@ -5,24 +5,24 @@ import { useEffect, useState } from 'react'
 import useSWRMutation from 'swr/mutation'
 
 import { useToast } from '@/components/providers/toast-provider'
+import { Coordinates } from '@/utils/types'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 type ConverterResultAddressProps = {
-    lat: string
-    lng: string
+    coordinates: Coordinates
 }
 
-export const ConverterResultAddress = (props: ConverterResultAddressProps) => {
+export const ConverterResultAddress = ({ coordinates }: ConverterResultAddressProps) => {
     const toast = useToast()
 
     const [address, setAddress] = useState<string | null>(null)
     const [lastCoords, setLastCoords] = useState<string | null>(null)
 
-    const url = props.lat && props.lng ? `/api/reverse-geocode?lat=${props.lat}&lon=${props.lng}` : null
+    const url = `/api/reverse-geocode?lat=${coordinates.lat}&lon=${coordinates.lng}`
     const { trigger, isMutating, error } = useSWRMutation(url, fetcher)
 
-    const currentCoords = props.lat && props.lng ? `${props.lat},${props.lng}` : null
+    const currentCoords = `${coordinates.lat},${coordinates.lng}`
 
     useEffect(() => {
         if (currentCoords !== lastCoords) {

@@ -5,11 +5,11 @@ import { useOverlay } from '@/components/providers/overlay-provider'
 import { Button } from '@/components/ui/button'
 import { Coordinates } from '@/utils/types'
 
-type LocationPickerSaveButtonProps = {
+type LocationSaveButtonProps = {
     coordinates: Coordinates
 }
 
-export const LocationPickerSaveButton = ({ coordinates }: LocationPickerSaveButtonProps) => {
+export const LocationSaveButton = ({ coordinates }: LocationSaveButtonProps) => {
     const overlay = useOverlay()
 
     const handleClick = () => {
