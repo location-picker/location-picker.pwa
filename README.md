@@ -1,4 +1,4 @@
-[![Deploy Status](https://github.com/tripadvancer/location-picker/actions/workflows/deploy.yml/badge.svg)](https://github.com/tripadvancer/location-picker/actions/workflows/deploy.yml)
+[![Deploy Status](https://github.com/tripadvancer/location-picker/actions/workflows/deploy.yml/badge.svg)](https://github.com/location-picker/location-picker.pwa/actions/workflows/deploy.yml)
 
 # Location Picker
 
