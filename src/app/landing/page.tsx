@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         'coordinates manager',
     ],
     alternates: {
-        canonical: '/',
+        canonical: '/landing',
     },
     robots: {
         index: true,
