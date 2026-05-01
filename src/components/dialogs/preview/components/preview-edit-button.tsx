@@ -1,25 +1,23 @@
-'use client'
-
-import { Preview } from '@/components/features/dialogs/preview/preview'
+import { EditLocation } from '@/components/dialogs/edit-location/edit-location'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { Button } from '@/components/ui/button'
 import { Place } from '@/utils/types'
 
-type EditLocationCancelButtonProps = {
+type PreviewEditButtonProps = {
     place: Place
     onSuccess: () => void
 }
 
-export const EditLocationCancelButton = ({ place, onSuccess }: EditLocationCancelButtonProps) => {
+export const PreviewEditButton = ({ place, onSuccess }: PreviewEditButtonProps) => {
     const overlay = useOverlay()
 
     const handleClick = () => {
-        overlay.open(<Preview place={place} onSuccess={onSuccess} />)
+        overlay.open(<EditLocation place={place} onSuccess={onSuccess} />)
     }
 
     return (
         <Button variant="minor" className="w-full" onClick={handleClick}>
-            Cancel
+            Edit
         </Button>
     )
 }

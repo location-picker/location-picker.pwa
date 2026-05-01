@@ -2,13 +2,12 @@
 
 import { useState } from 'react'
 
-import { ConverterResult } from '@/components/features/common/converter-result/converter-result'
+import { ConverterResult } from '@/components/common/converter-result/converter-result'
 import { Button } from '@/components/ui/button'
 import { Divider } from '@/components/ui/divider'
 import { Input } from '@/components/ui/input'
 import { SearchType } from '@/utils/enums'
-import { detectSearchType } from '@/utils/helpers'
-import { convertDMStoDD, parseDDCoordinates } from '@/utils/helpers'
+import { convertDMStoDD, detectSearchType, parseDDCoordinates } from '@/utils/helpers'
 
 export const CoordinateConverter = () => {
     const [value, setValue] = useState('')
@@ -55,13 +54,13 @@ export const CoordinateConverter = () => {
 
             <div className="flex flex-col items-start gap-4 md:w-2/3 md:flex-row">
                 <Input
-                    placeholder="Enter coordinates DD or DMS"
                     value={value}
-                    error={error}
                     className="w-full"
+                    placeholder="Enter coordinates DD or DMS"
+                    error={error}
                     onChange={e => setValue(e.target.value)}
                 />
-                <Button variant="minor" onClick={handleConvert} className="w-full md:w-auto">
+                <Button variant="minor" className="w-full md:w-auto" onClick={handleConvert}>
                     Convert
                 </Button>
             </div>

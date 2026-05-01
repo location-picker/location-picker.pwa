@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         siteName: 'My Saved Location',
         images: [
             {
-                url: '/og-image-saved.png',
+                url: '/icons/icon-512.png',
                 width: 1200,
                 height: 630,
                 alt: 'Saved Locations',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'My Saved Locations',
         description: 'View and manage all your saved locations in one place. Easily access, edit, and share your locations.',
-        images: ['/og-image-saved.png'],
+        images: ['/icons/icon-512.png'],
     },
 }
 

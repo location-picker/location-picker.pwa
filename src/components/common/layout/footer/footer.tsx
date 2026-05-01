@@ -1,4 +1,4 @@
-import { InstallPWAButton } from '@/components/features/common/install-pwa-button/install-pwa-button'
+import { InstallPWAButton } from '@/components/common/install-pwa-button/install-pwa-button'
 import { ExternalLink } from '@/components/ui/external-link'
 
 export const Footer = () => {

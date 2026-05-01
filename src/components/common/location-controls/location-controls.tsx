@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-import { LocationActions } from '@/components/features/dialogs/location-actions/location-actions'
+import { LocationActions } from '@/components/dialogs/location-actions/location-actions'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { NAVIGATORS } from '@/utils/constants'
 import { Navigator } from '@/utils/enums'
@@ -27,8 +27,8 @@ export const LocationControls = ({ coordinates }: LocationControlsProps) => {
                 {NAVIGATORS.map(nav => (
                     <div
                         key={nav.id}
-                        onClick={() => handleNavigatorClick(nav.id)}
                         className="flex h-20 cursor-pointer flex-col items-center justify-center gap-y-2 rounded-xl border border-transparent bg-orange-50 transition hover:border-orange-200 hover:bg-orange-100"
+                        onClick={() => handleNavigatorClick(nav.id)}
                     >
                         <Image src={nav.icon} width={32} height={32} alt={nav.name} />
                         <div className="text-xs font-bold">{nav.name}</div>

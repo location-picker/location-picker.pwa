@@ -1,6 +1,6 @@
 'use client'
 
-import { AddLocation } from '@/components/features/dialogs/add-location/add-location'
+import { AddLocation } from '@/components/dialogs/add-location/add-location'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { Button } from '@/components/ui/button'
 import { Coordinates } from '@/utils/types'

@@ -6,6 +6,12 @@ import { GeolocateControl, MapRef, NavigationControl, Map as ReactMapGl, ViewSta
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 
+const transparentPixel = {
+    width: 1,
+    height: 1,
+    data: new Uint8Array([0, 0, 0, 0]),
+}
+
 export const LocationPickerMap = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
@@ -62,6 +68,23 @@ export const LocationPickerMap = () => {
             })
         }
     }, [searchParams])
+
+    useEffect(() => {
+        const map = mapRef.current?.getMap()
+        if (!map) return
+
+        const handleStyleImageMissing = (event: { id: string }) => {
+            if (!map.hasImage(event.id)) {
+                map.addImage(event.id, transparentPixel)
+            }
+        }
+
+        map.on('styleimagemissing', handleStyleImageMissing)
+
+        return () => {
+            map.off('styleimagemissing', handleStyleImageMissing)
+        }
+    }, [initialViewState])
 
     const handleMoveStart = useCallback(() => {
         setIsMapMoving(true)

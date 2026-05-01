@@ -1,7 +1,7 @@
 'use client'
 
-import { Confirmation } from '@/components/features/dialogs/confirmation/confirmation'
-import { EditLocation } from '@/components/features/dialogs/edit-location/edit-location'
+import { Confirmation } from '@/components/dialogs/confirmation/confirmation'
+import { EditLocation } from '@/components/dialogs/edit-location/edit-location'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { Button } from '@/components/ui/button'
 import { deletePlace } from '@/utils/db'

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         siteName: 'My Saved Places',
         images: [
             {
-                url: '/og-image-converter.png',
+                url: '/icons/icon-512.png',
                 width: 1200,
                 height: 630,
                 alt: 'Coordinates Converter',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Coordinates Converter',
         description: 'Convert GPS coordinates easily between Decimal Degrees (DD) and Degrees Minutes Seconds (DMS) formats.',
-        images: ['/og-image-converter.png'],
+        images: ['/icons/icon-512.png'],
     },
 }
 

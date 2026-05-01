@@ -1,4 +1,4 @@
-import { LocationControls } from '@/components/features/common/location-controls/location-controls'
+import { LocationControls } from '@/components/common/location-controls/location-controls'
 import { Coordinates } from '@/utils/types'
 
 import { ConverterResultAddress } from './components/converter-result-address'

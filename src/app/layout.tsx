@@ -1,12 +1,12 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 import classNames from 'classnames'
-import type { Viewport } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 
-import YandexMetrika from '@/components/features/common/yandex-metrika/yandex-metrika'
+import YandexMetrika from '@/components/common/yandex-metrika/yandex-metrika'
 import { OverlayProvider } from '@/components/providers/overlay-provider'
 import { ToastProvider } from '@/components/providers/toast-provider'
 import { TailwindIndicator } from '@/components/ui/tailwind-indicator'
@@ -16,6 +16,12 @@ import './globals.css'
 const roboto = Roboto({
     subsets: ['latin', 'cyrillic'],
 })
+
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://location-picker.tripadvancer.com'
+
+export const metadata: Metadata = {
+    metadataBase: new URL(appUrl),
+}
 
 export const viewport: Viewport = {
     width: 'device-width',

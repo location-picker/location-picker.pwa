@@ -4,8 +4,8 @@ import { useEffect } from 'react'
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { LocationControls } from '@/components/features/common/location-controls/location-controls'
-import { Search } from '@/components/features/search/search'
+import { LocationControls } from '@/components/common/location-controls/location-controls'
+import { Search } from '@/components/common/search/search'
 
 import { LocationPickerMap } from './components/location-picker-map'
 

@@ -63,7 +63,13 @@ export function InstallPWAButton({ width, height }: InstallPWAButtonProps) {
 
     return (
         <div onClick={handleInstallClick} className="cursor-pointer">
-            <Image src="/images/pwa.svg" width={width} height={height} alt="Install Comedyportal App" />
+            <Image
+                src="/images/pwa.svg"
+                width={width}
+                height={height}
+                alt="Install My Saved Places app"
+                loading="eager"
+            />
         </div>
     )
 }

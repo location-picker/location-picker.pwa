@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         siteName: 'My Saved Places',
         images: [
             {
-                url: '/og-image-about.png',
+                url: '/icons/icon-512.png',
                 width: 1200,
                 height: 630,
                 alt: 'About My Saved Places',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'About',
         description: 'Learn more about My Saved Places, a free online tool for searching, converting, storing and sharing locations by address or coordinates. Discover how it works and its features.',
-        images: ['/og-image-about.png'],
+        images: ['/icons/icon-512.png'],
     },
 }
 

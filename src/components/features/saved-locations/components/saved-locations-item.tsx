@@ -2,7 +2,7 @@
 
 import { PinIcon } from 'lucide-react'
 
-import { Preview } from '@/components/features/dialogs/preview/preview'
+import { Preview } from '@/components/dialogs/preview/preview'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { updatePlace } from '@/utils/db'
 import { Place } from '@/utils/types'
@@ -36,7 +36,7 @@ export const SavedLocationsItem = ({ place, onLoadPlaces }: SavedLocationsItemPr
             <div className="flex-1 p-4 font-bold" onClick={handleClick}>
                 {place.name}
             </div>
-            <div onClick={handleTogglePin} className="cursor-pointer p-4">
+            <div className="cursor-pointer p-4" onClick={handleTogglePin}>
                 <PinIcon size={18} color={place.pinned ? '#000000' : '#9CA3AF'} />
             </div>
         </li>

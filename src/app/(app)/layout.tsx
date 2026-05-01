@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import { Footer } from '@/components/features/layout/footer/footer'
-import { Header } from '@/components/features/layout/header/header'
-import { MobileBottomNav } from '@/components/features/layout/mobile-bottom-nav/mobile-bottom-nav'
+import { Footer } from '@/components/common/layout/footer/footer'
+import { Header } from '@/components/common/layout/header/header'
+import { MobileBottomNav } from '@/components/common/layout/mobile-bottom-nav/mobile-bottom-nav'
 
 export default function AppLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
