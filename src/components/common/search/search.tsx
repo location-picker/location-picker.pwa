@@ -1,6 +1,6 @@
 'use client'
 
-import { RefObject, useEffect, useRef, useState } from 'react'
+import { RefObject, useEffect, useMemo, useRef, useState } from 'react'
 
 import { MapPinIcon } from 'lucide-react'
 import useSWR from 'swr'
@@ -13,6 +13,7 @@ import { SearchItem } from '@/utils/types'
 
 type SearchResponse = {
     items: SearchItem[]
+    error?: string | null
 }
 
 const fetcher = async (url: string): Promise<SearchResponse> => {
@@ -26,14 +27,36 @@ export const Search = () => {
     const searchParams = useSearchParams()
 
     const [value, setValue] = useState('')
+    const [selectedQuery, setSelectedQuery] = useState<string | null>(null)
     const [isAutocompleteVisible, setIsAutocompleteVisible] = useState(false)
     const [debouncedValue] = useDebounceValue(value, 500)
+    const searchQuery = debouncedValue.trim()
+    const searchApiUrl = useMemo(() => {
+        if (selectedQuery === searchQuery) return null
+        if (searchQuery.length < 2) return null
+
+        const params = new URLSearchParams({ q: searchQuery })
+        const lat = searchParams.get('lat')
+        const lng = searchParams.get('lng')
+
+        if (lat && lng) {
+            params.set('lat', lat)
+            params.set('lng', lng)
+        }
+
+        return `/api/search?${params.toString()}`
+    }, [searchParams, searchQuery, selectedQuery])
 
     const ref = useRef<HTMLDivElement>(null)
 
     const { data, isLoading } = useSWR<SearchResponse>(
-        debouncedValue.length >= 2 ? `/api/search?q=${encodeURIComponent(debouncedValue)}` : null,
+        searchApiUrl,
         fetcher,
+        {
+            errorRetryCount: 2,
+            errorRetryInterval: 700,
+            keepPreviousData: true,
+        },
     )
 
     useOnClickOutside(ref as RefObject<HTMLDivElement>, () => {
@@ -41,15 +64,18 @@ export const Search = () => {
     })
 
     useEffect(() => {
-        if (data?.items?.length) {
+        if (data?.items?.length && selectedQuery !== searchQuery) {
             setIsAutocompleteVisible(true)
         } else {
             setIsAutocompleteVisible(false)
         }
-    }, [data])
+    }, [data, searchQuery, selectedQuery])
 
     const handleSelectItem = (item: SearchItem) => {
         if (item.coordinates) {
+            setSelectedQuery(searchQuery)
+            setIsAutocompleteVisible(false)
+
             const { lat, lng } = item.coordinates
             const zoom = 15
 
@@ -59,18 +85,22 @@ export const Search = () => {
             currentParams.set('zoom', zoom.toString())
 
             router.replace(`/?${currentParams.toString()}`)
-
-            setIsAutocompleteVisible(false)
         }
     }
 
     const handleInputClear = () => {
         setValue('')
+        setSelectedQuery(null)
         setIsAutocompleteVisible(false)
     }
 
+    const handleInputChange = (nextValue: string) => {
+        setValue(nextValue)
+        setSelectedQuery(null)
+    }
+
     const handleInputClick = () => {
-        if (data?.items?.length) {
+        if (data?.items?.length && selectedQuery !== searchQuery) {
             setIsAutocompleteVisible(true)
         }
     }
@@ -81,7 +111,7 @@ export const Search = () => {
                 value={value}
                 placeholder="Enter location or coordinates"
                 isLoading={isLoading}
-                onChange={setValue}
+                onChange={handleInputChange}
                 onClear={handleInputClear}
                 onClick={handleInputClick}
             />
