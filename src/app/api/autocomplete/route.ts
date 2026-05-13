@@ -1,43 +1,23 @@
 import { NextResponse } from 'next/server'
 
+import { fetchPreferredAutocompleteItems, parseOptionalCoordinates } from '../locationiq'
+
 export async function GET(req: Request) {
     try {
         const { searchParams } = new URL(req.url)
-        const q = searchParams.get('q')
-        const apiKey = process.env.LOCATIONIQ_API_KEY
-        const apiUrl = process.env.LOCATIONIQ_API_URL
+        const q = searchParams.get('q')?.trim()
+        const locale = searchParams.get('locale') || searchParams.get('lang')
+        const coordinates = parseOptionalCoordinates(searchParams.get('lat'), searchParams.get('lng'))
 
-        if (!q || !apiKey || !apiUrl) {
+        if (!q) {
             return NextResponse.json({ items: [], error: 'Missing query parameter "q"' }, { status: 400 })
         }
 
-        const params = new URLSearchParams({
-            key: apiKey,
-            q,
-            limit: '5',
-            format: 'json',
-        })
-
-        const url = `${apiUrl}/autocomplete.php?${params.toString()}`
-        const res = await fetch(url)
-
-        if (!res.ok) {
-            console.error('Autocomplete fetch failed:', res.statusText)
-            return NextResponse.json({ error: 'Failed to fetch address' }, { status: 502 })
-        }
-
-        const data = await res.json()
+        const items = await fetchPreferredAutocompleteItems(q, { coordinates, locale })
 
         return NextResponse.json(
             {
-                items: data.map((item: { display_place: string; display_name: string; lat: string; lon: string }) => ({
-                    title: item.display_place,
-                    description: item.display_name,
-                    coordinates: {
-                        lat: item.lat,
-                        lng: item.lon,
-                    },
-                })),
+                items,
                 error: null,
             },
             { status: 200 },
